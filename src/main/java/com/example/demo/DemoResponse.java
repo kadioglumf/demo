@@ -27,6 +27,7 @@ public class DemoResponse implements BaseDto {
                     font = {@ExcelFont(fontItalic = true)},
                     backgroundHexColor = "#3489eb")},
                 cellStyle = {@ExcelCellStyle(
+                        evenOdd = EvenOddEnum.EVEN,
                     fillPattern = FillPatternType.SOLID_FOREGROUND,
                     font = {@ExcelFont(fontItalic = true)},
                     backgroundHexColor = "#3489eb",
