@@ -22,6 +22,6 @@ public class DemoResponse implements BaseDto {
             localeCode = "export.price",
             autoSizeColumn = true,
             dataFormat = ExportDataFormatConstants.EXPORT_DEFAULT_2_DECIMALS_NUMBER_FORMAT)
-    @ExcelSummary(summary = ExcelSummaryEnum.AVG)
+    @ExcelSummary(summary = ExcelSummaryEnum.AVERAGE)
     private BigDecimal price;
 }
