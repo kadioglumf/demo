@@ -1,10 +1,10 @@
 package com.example.demo;
 
-import com.kadioglumf.export.annotation.ExcelSummary;
-import com.kadioglumf.export.annotation.ExcelSummaryEnum;
-import com.kadioglumf.export.annotation.ExportAware;
+import com.kadioglumf.export.annotation.*;
 import com.kadioglumf.export.dto.BaseDto;
 import lombok.Data;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -22,6 +22,15 @@ public class DemoResponse implements BaseDto {
             localeCode = "export.price",
             autoSizeColumn = true,
             dataFormat = ExportDataFormatConstants.EXPORT_DEFAULT_2_DECIMALS_NUMBER_FORMAT)
-    @ExcelSummary(summary = ExcelSummaryEnum.AVERAGE)
+    @ExcelStyle(headerStyle = {@ExcelCellStyle(
+                    fillPattern = FillPatternType.SOLID_FOREGROUND,
+                    font = {@ExcelFont(fontItalic = true)},
+                    backgroundHexColor = "#3489eb")},
+                cellStyle = {@ExcelCellStyle(
+                    fillPattern = FillPatternType.SOLID_FOREGROUND,
+                    font = {@ExcelFont(fontItalic = true)},
+                    backgroundHexColor = "#3489eb",
+                    borderStyle = {@ExcelBorderStyle(borderStyle = BorderStyle.DASH_DOT, borders = BorderType.TOP)})})
+    @ExcelSummary(summary = ExcelSummaryEnum.AVERAGE, style = {@ExcelCellStyle(font = @ExcelFont(fontBold = true, fontColor = "#3489eb"))})
     private BigDecimal price;
 }
