@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.kadioglumf.core.adapter.JsonZonedDateTimeDeserializer;
+import com.kadioglumf.core.adapter.JsonZonedDateTimeSerializer;
 import com.kadioglumf.export.annotation.*;
 import com.kadioglumf.export.dto.BaseDto;
 import lombok.Data;
@@ -12,6 +16,8 @@ import java.time.ZonedDateTime;
 @Data
 public class DemoResponse implements BaseDto {
 
+    @JsonDeserialize(using = JsonZonedDateTimeDeserializer.class)
+    @JsonSerialize(using = JsonZonedDateTimeSerializer.class)
     @ExportAware(columnOrder = 0,
             localeCode = "export.date",
             autoSizeColumn = true,
