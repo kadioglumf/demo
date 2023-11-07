@@ -6,6 +6,7 @@ import com.kadioglumf.export.dto.ExportType;
 import com.kadioglumf.export.service.ExportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,9 @@ import java.util.Random;
 @RequestMapping("/api")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DemoController {
+
+    @Value("${fatih-test}")
+    private String test;
 
     @Autowired private final ExportService exportService;
     @Autowired private final ConvertToLocaleText convertToLocaleText;
@@ -48,5 +52,11 @@ public class DemoController {
     @GetMapping("/exception")
     public ResponseEntity<?> exceptionDemo() {
         throw new BusinessException("SEF1111");
+    }
+
+    @GetMapping("/exception")
+    public ResponseEntity<Void> etcdTest() {
+        System.out.println("etcd-test: " + test);
+        return ResponseEntity.ok().build();
     }
 }
