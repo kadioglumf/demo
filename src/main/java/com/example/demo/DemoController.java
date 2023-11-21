@@ -54,7 +54,7 @@ public class DemoController {
         throw new BusinessException("SEF1111");
     }
 
-    @GetMapping("/exception")
+    @GetMapping("/etcd")
     public ResponseEntity<Void> etcdTest() {
         System.out.println("etcd-test: " + test);
         return ResponseEntity.ok().build();
