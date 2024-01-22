@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.samples;
 
 public class ExportDataFormatConstants {
 

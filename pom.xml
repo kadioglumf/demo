@@ -8,11 +8,11 @@
         <version>2.7.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.kadioglumf</groupId>
+    <artifactId>samples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>demo</description>
+    <name>samples</name>
+    <description>samples</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -30,14 +30,16 @@
         </dependency>
 
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+
+        <!-- custom dependencies -->
+        <dependency>
             <groupId>com.kadioglumf</groupId>
             <artifactId>export-util</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
@@ -45,10 +47,16 @@
             <artifactId>etcd-config</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
+        <!-- custom dependencies -->
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

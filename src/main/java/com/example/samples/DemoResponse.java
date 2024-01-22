@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.samples;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

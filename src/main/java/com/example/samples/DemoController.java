@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.samples;
 
 import com.kadioglumf.core.ConvertToLocaleText;
 import com.kadioglumf.core.exception.BusinessException;
@@ -26,7 +26,7 @@ import java.util.Random;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DemoController {
 
-    @Value("${fatih-test}")
+    @Value("${etcd-test-field}")
     private String test;
 
     @Autowired private final ExportService exportService;
@@ -44,14 +44,14 @@ public class DemoController {
         }
         return exportService.exportToGenericFile(list,
                 convertToLocaleText.convertToText("export.fileName",
-                        new String[] {DateTimeFormatter.ofPattern("ddMMyyyy").format(ZonedDateTime.now().minusYears(1))},"DefaultFile"),
+                        new String[] {DateTimeFormatter.ofPattern("ddMMyyyy").format(ZonedDateTime.now())},"DefaultFile"),
                 ExportType.XLSX, convertToLocaleText.convertToText("export.sheetName" ,null, "DefaultFile"));
 
     }
 
     @GetMapping("/exception")
     public ResponseEntity<?> exceptionDemo() {
-        throw new BusinessException("SEF1111");
+        throw new BusinessException("SAM1111");
     }
 
     @GetMapping("/etcd")
